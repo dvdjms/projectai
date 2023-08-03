@@ -8,12 +8,12 @@ export default function HomeScreen() {
 
             <SafeAreaView style={styles.container}>
 
-            <SearchBox />
+
 
               <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>
                   <Text style={styles.text}>Edinburgh</Text>
               </ScrollView>
-  
+              <SearchBox />
           </SafeAreaView>
 
       )

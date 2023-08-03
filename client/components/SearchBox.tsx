@@ -1,6 +1,6 @@
-import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
-import React, { useState, useRef, useEffect } from 'react';
-
+import { View, StyleSheet, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import SearchButton from './SearchButton';
 
 export default function SearchBox() {
 
@@ -27,6 +27,7 @@ export default function SearchBox() {
 
       return (
             <>
+            <View style={styles.outercontainer}>
                   <View style={styles.container}>
                         <TextInput 
                               style={styles.text} 
@@ -35,38 +36,42 @@ export default function SearchBox() {
                               value={userInput}
                               onChangeText={handleChangeText}
                         />
-
                   </View>
-                  <TouchableOpacity 
-                        style={styles.button}
-                        onPress={handleClick}>
-                        
-                        <Text>Press Here</Text>
-
-                  </TouchableOpacity>
-      
+                  <View style={styles.buttoncontainer} >
+                        <SearchButton onPress={handleClick} />
+                  </View>
+            </View>
             </>
       )
 }
 
 const styles = StyleSheet.create({
       text: {
-        fontSize: 16,
-        color: '#000000',
-        paddingTop: 7,
+            fontSize: 16,
+            color: '#000000',
+            paddingTop: 7,
+            // justifyContent: 'flex-start',
       },
       container: {
-        paddingTop: 5,
-      //   borderColor: '#4dfff0',
-      //   borderWidth: 2,
-        width: 350,
-        marginTop: 15,
-        marginBottom: 15,
-        padding: 10,
-        borderRadius: 3,
-        backgroundColor: '#f1f1f1',
+            flex: 1,
+            paddingTop: 5,
+            width: 270,
+            marginTop: 15,
+            marginBottom: 15,
+            padding: 10,
+            borderRadius: 3,
+            backgroundColor: '#f1f1f1',
       },
-      button: {
-            backgroundColor: '#f194ff',
+      outercontainer: {
+            width: 350,
+            flexDirection: 'row',
+      },
+      buttoncontainer: {
+            marginTop: 10,
+            marginBottom: 10,
+            padding: 5,
+            width: 50,
+            // justifyContent: 'flex-end'
       }
+
 })
